@@ -3,7 +3,6 @@ import uuid from "uuid";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-import { throwStatement } from "@babel/types";
 class App extends Component {
   state = {
     items: [],
@@ -24,21 +23,18 @@ class App extends Component {
       title: this.state.item
     };
     const updatedItems = [...this.state.items, newItem];
-    this.setState(
-      {
-        items: updatedItems,
-        item: "",
-        id: uuid(),
-        editItem: false
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: uuid(),
+      editItem: false
+    });
   };
   clearList = () => {
     console.log("clear list");
   };
   handleDelete = id => {
-    console.log(`handle edit ${id}`);
+    console.log(`handle delete ${id}`);
   };
   handleEdit = id => {
     console.log(`edit edit ${id}`);
